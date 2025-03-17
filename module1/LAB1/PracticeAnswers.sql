@@ -21,4 +21,4 @@ SELECT Title FROM FilmLocations LIMIT 50;
 -- 2.
 SELECT Title, "Release Year" FROM FilmLocations WHERE "Release Year" = 2015 LIMIT 10;
 -- 3. 
-SELECT Title, "Release Year" FROM FilmLocations WHERE "Release Year" = 2015 LIMIT 3 OFFSET 4;
+SELECT Title, "Release Year" FROM FilmLocations WHERE "Release Year" = 2015 LIMIT 3 OFFSET 5;
