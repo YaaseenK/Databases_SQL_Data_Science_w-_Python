@@ -12,4 +12,4 @@ SELECT COUNT(TITLE) FROM FilmLocations WHERE "Release Year" = 2019
 
 -- Using DISTINCT statement
 SELECT DISTINCT Title FROM FilmLocations LIMIT 5;
-SELECT count (DISTINCT "Realease Year") FROM FilmLocations; 
+SELECT COUNT (DISTINCT "writer") FROM FilmLocations; 
