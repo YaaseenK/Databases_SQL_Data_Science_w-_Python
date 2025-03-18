@@ -4,6 +4,17 @@
 
 -- select * FROM Instructor
 
-INSERT INTO Instructor (ins_id,firstname,lastname,city,country)
-VALUES(5, 'John', 'Doe', 'Sydney' , 'AU'),(6, 'Jane', 'Doe', 'Dhaka' , 'BD');
+-- INSERT INTO Instructor (ins_id,firstname,lastname,city,country)
+-- VALUES(5, 'John', 'Doe', 'Sydney' , 'AU'),(6, 'Jane', 'Doe', 'Dhaka' , 'BD');
+-- SELECT * FROM Instructor;
+
+--  UPDATE
+UPDATE Instructor
+SET city = 'Toronto'
+WHERE firstname ='Sandip';
+
 SELECT * FROM Instructor;
+
+Update Instructor
+SET city = 'Dubai', country = 'AE'
+WHERE ins_id=5;
