@@ -9,14 +9,21 @@
 -- SELECT * FROM Instructor;
 
 --  UPDATE
-UPDATE Instructor
-SET city = 'Toronto'
-WHERE firstname ='Sandip';
+-- UPDATE Instructor
+-- SET city = 'Toronto'
+-- WHERE firstname ='Sandip';
 
-SELECT * FROM Instructor;
+-- SELECT * FROM Instructor;
 
-Update Instructor
-SET city = 'Dubai', country = 'AE'
-WHERE ins_id=5;
+-- Update Instructor
+-- SET city = 'Dubai', country = 'AE'
+-- WHERE ins_id=5;
 
-SELECT * FROM Instructor;
+-- SELECT * FROM Instructor;
+
+-- -- DELETE
+-- SELECT * FROM Instructor;
+-- DELETE FROM Instructor
+-- WHERE ins_id = 6;
+
+-- SELECT * FROM Instructor;
