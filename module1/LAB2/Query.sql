@@ -18,3 +18,5 @@ SELECT * FROM Instructor;
 Update Instructor
 SET city = 'Dubai', country = 'AE'
 WHERE ins_id=5;
+
+SELECT * FROM Instructor;
