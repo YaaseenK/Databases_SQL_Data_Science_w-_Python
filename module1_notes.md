@@ -69,3 +69,66 @@ SELECT * FROM FilmLocations LIMIT 15 OFFSET 10;
 
 ---
 
+## `INSERT`, `UPDATE`, `DELETE` Statements (DML - Data Manipulation Language)
+
+### `INSERT` - Insert new rows into a table
+
+#### Syntax:
+```sql
+INSERT INTO table_name (column1, column2, ....)
+VALUES (value1, value2, ...);
+```
+
+1. **Insert a new instructor record with id 4 for Sandip Saha who lives in Edmonton, CA into the `Instructor` table.**
+```sql
+INSERT INTO Instructor(ins_id, lastname, firstname, city, country)
+VALUES(4, 'Saha', 'Sandip', 'Edmonton', 'CA');
+```
+
+2. **Insert multiple instructor records into the `Instructor` table.**
+```sql
+INSERT INTO Instructor(ins_id, lastname, firstname, city, country)
+VALUES(5, 'Doe', 'John', 'Sydney', 'AU'), 
+      (6, 'Doe', 'Jane', 'Dhaka', 'BD');
+```
+
+---
+
+### `UPDATE` - Update existing rows in a table
+
+#### Syntax:
+```sql
+UPDATE table_name 
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+```
+
+1. **Update the city for Sandip to Toronto.**
+```sql
+UPDATE Instructor 
+SET city='Toronto' 
+WHERE firstname='Sandip';
+```
+
+2. **Update multiple columns for an instructor.**
+```sql
+UPDATE Instructor 
+SET city='Dubai', country='AE' 
+WHERE ins_id=5;
+```
+
+---
+
+### `DELETE` - Remove rows from a table
+
+#### Syntax:
+```sql
+DELETE FROM table_name
+WHERE condition;
+```
+
+1. **Remove the instructor record of Doe whose id is 6.**
+```sql
+DELETE FROM Instructor
+WHERE ins_id = 6;
+```
