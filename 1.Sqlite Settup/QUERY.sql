@@ -32,4 +32,39 @@ INSERT INTO PET VALUES
 SELECT * FROM PETSALE;
 SELECT * FROM PET;
 
--- ALTER statement
+-- ALTER statement [ADD, DELETE, OR MODIFY COLUMNS]
+
+-- 1. Adding a column
+
+-- Add a new column named QUANTITY to the PETSALE table and display the altered table.
+ALTER TABLE PETSALE 
+ADD COLUMN QUANTITY INTEGER;
+
+SELECT * FROM PETSALE;
+
+
+-- UPDATE THE NEWLY ADDED COLUMN OF PETSALE TABLE 
+-- 
+
+UPDATE PETSALE SET QUANTITY = 9 WHERE ID = 1;
+UPDATE PETSALE SET QUANTITY = 3 WHERE ID = 2;
+UPDATE PETSALE SET QUANTITY = 2 WHERE ID = 3;
+UPDATE PETSALE SET QUANTITY = 6 WHERE ID = 4;
+UPDATE PETSALE SET QUANTITY = 24 WHERE ID = 5;
+
+SELECT * FROM PETSALE;
+
+-- 2. Deleting a column
+--  Delete the PROFIT from the PETSALE table
+-- is not valid in SQLite because SQLite does not support the DROP COLUMN command directly.
+-- 
+ALTER TABLE PETSALE
+DROP COLUMN PROFIT;
+
+SELECT * FROM PETSALE;
+
+-- 3. Modify a column
+-- 
+
+
+
