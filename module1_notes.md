@@ -1,8 +1,9 @@
 # FilmLocations Database Query Notes
 
-## Table: FilmLocations
+## LAB 1 Table: FilmLocations
+## LAB 2 Table: Instructors
 
-### Column Descriptions
+### LAB 1 Column Descriptions
 - **Title**: Titles of the films
 - **ReleaseYear**: Time of public release of the films
 - **Locations**: Locations of San Francisco where the films were shot
@@ -14,6 +15,13 @@
 - **Actor1**: Person 1 who acted in the films
 - **Actor2**: Person 2 who acted in the films
 - **Actor3**: Person 3 who acted in the films
+
+### LAB 2 Column Descriptions
+- **ins_id**: Unique identification number of the instructors
+- **lastname**: Last name of the instructors
+- **firstname**: First name of the instructors
+- **city**: Name of the cities where instructors are located
+- **country**: Two-letter country code of the countries where instructors are located
 
 ---
 
@@ -58,3 +66,6 @@ SELECT * FROM FilmLocations LIMIT 25;
 ```sql
 SELECT * FROM FilmLocations LIMIT 15 OFFSET 10;
 ```
+
+---
+
