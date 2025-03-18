@@ -13,3 +13,10 @@
 -- 2. Problem
 -- Update the city and country for Sandip with id 4 to Dhaka and BD respectively.
 
+-- DELETE
+-- 1. Problem:
+-- Remove the instructor record of Hima.
+DELETE FROM instructor
+WHERE firstname = 'Hima';
+
+SELECT * FROM Instructor;
