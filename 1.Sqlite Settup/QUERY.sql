@@ -56,15 +56,56 @@ SELECT * FROM PETSALE;
 
 -- 2. Deleting a column
 --  Delete the PROFIT from the PETSALE table
--- is not valid in SQLite because SQLite does not support the DROP COLUMN command directly.
+-- DROP is not valid in SQLite because SQLite does not support the DROP COLUMN command directly.
 -- 
 ALTER TABLE PETSALE
 DROP COLUMN PROFIT;
 
 SELECT * FROM PETSALE;
 
+-- To remove the PROFIT column from PETSALE, follow these steps:
+-- Step 1: Create a new table with the updated data type
+CREATE TABLE PETSALE_NEW (
+    OrderID INTEGER PRIMARY KEY,
+    PET VARCHAR(20),
+    SALE_DATE DATE,
+    SALE_AMOUNT REAL
+);
+
+-- Step 2: Copy data from the old table to the new table
+INSERT INTO PETSALE_NEW (OrderID, PET, SALE_DATE, SALE_AMOUNT)
+SELECT OrderID, PET, SALE_DATE, SALE_AMOUNT FROM PETSALE;
+
+-- Step 3: Drop the old table
+DROP TABLE PETSALE;
+
+-- Step 4: Rename the new table to match the old table's name
+ALTER TABLE PETSALE_NEW RENAME TO PETSALE;
+
 -- 3. Modify a column
--- 
+-- CHANGE DATA TYPE VARCHAR(20) in PET COL 
+--  MODIFY is not valid in SQLite because SQLite does not support the MODIFY COLUMN command directly.
 
+ALTER TABLE PETSALE
+MODIFY PET VARCHAR(20);
+SELECT * FROM PETSALE;
 
+-- If you want to modify the PET column's data type to VARCHAR(20), follow this approach:
 
+-- Step 1: Create a new table with the updated data type
+CREATE TABLE PETSALE_NEW (
+    OrderID INTEGER PRIMARY KEY,
+    PET VARCHAR(20),
+    SALE_DATE DATE,
+    SALE_AMOUNT REAL
+);
+
+-- Step 2: Copy data from the old table to the new table
+INSERT INTO PETSALE_NEW (OrderID, PET, SALE_DATE, SALE_AMOUNT)
+SELECT OrderID, PET, SALE_DATE, SALE_AMOUNT FROM PETSALE;
+
+-- Step 3: Drop the old table
+DROP TABLE PETSALE;
+
+-- Step 4: Rename the new table to match the old table's name
+ALTER TABLE PETSALE_NEW RENAME TO PETSALE;
