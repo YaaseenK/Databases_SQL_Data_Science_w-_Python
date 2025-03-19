@@ -109,3 +109,35 @@ DROP TABLE PETSALE;
 
 -- Step 4: Rename the new table to match the old table's name
 ALTER TABLE PETSALE_NEW RENAME TO PETSALE;
+
+-- 4. Rename a Column -
+-- SQLite does not support CHANGE COLUMN like MySQL does.
+-- SQLite does not allow renaming or changing the data type of a column directly.
+
+ALTER TABLE `PETSALE` CHANGE `PET` `ANIMAL` varchar(20);
+
+SELECT * FROM PETSALE;
+
+-- Since SQLite does not support modifying column data types directly, you need to:
+
+
+-- Step 1: Create a new table with the desired column name and data type
+CREATE TABLE PETSALE_NEW (
+    OrderID INTEGER PRIMARY KEY,
+    ANIMAL VARCHAR(20),  -- Changed from PET to ANIMAL with varchar(20)
+    SALE_DATE DATE,
+    SALE_AMOUNT REAL
+);
+
+-- Step 2: Copy data from the old table to the new table
+INSERT INTO PETSALE_NEW (OrderID, ANIMAL, SALE_DATE, SALE_AMOUNT)
+SELECT OrderID, PET, SALE_DATE, SALE_AMOUNT FROM PETSALE;
+
+-- Step 3: Drop the old table
+DROP TABLE PETSALE;
+
+-- Step 4: Rename the new table to the original table name
+ALTER TABLE PETSALE_NEW RENAME TO PETSALE;
+
+-- Step 5: Verify the table structure and data
+SELECT * FROM PETSALE;
