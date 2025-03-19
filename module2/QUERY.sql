@@ -168,3 +168,9 @@ CREATE TABLE PETSALE (
     SALE_DATE DATE,
     SALE_AMOUNT REAL
 );
+
+-- DROP statement - delete exsisting table. 
+-- let's drop the pet table and verify if the table stil; exists or not
+DROP TABLE PET;
+
+SELECT * FROM PET;
