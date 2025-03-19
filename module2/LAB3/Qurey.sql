@@ -73,7 +73,12 @@ ORDER BY AVG_SALARY;
     SELECT DEP_ID, AVG(SALARY)
     FROM EMPLOYEES
     GROUP BY DEP_ID
-    HAVING count(*) <= 60000
+    HAVING AVG(SALARY) >= 60000
     -- ORDER BY SALARY;
 
 -- 4. For the problem above, sort the results for each group in descending order of average salary. 
+    SELECT DEP_ID, AVG(SALARY) AS "AVG_SALARY"
+    FROM EMPLOYEES
+    GROUP BY DEP_ID
+    HAVING AVG(SALARY) >= 60000
+    ORDER BY "AVG_SALARY" DESC;
