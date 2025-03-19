@@ -141,3 +141,30 @@ ALTER TABLE PETSALE_NEW RENAME TO PETSALE;
 
 -- Step 5: Verify the table structure and data
 SELECT * FROM PETSALE;
+
+-- TRUNCATE statement - Remove All rows from an exsisting table without deleting it
+
+TRUNCATE TABLE PET ;
+
+SELECT * FROM PET;
+
+-- TRUNCATE TABLE does not work in SQLite. 
+-- Alternative to TRUNCATE in SQLite
+
+-- Since TRUNCATE TABLE is not available, you can use:
+DELETE FROM table_name;
+
+-- If You Want to Reset AUTOINCREMENT Counter
+
+DELETE FROM table_name;
+DELETE FROM sqlite_sequence WHERE name='table_name';
+
+-- If You Want a True TRUNCATE Effect
+
+DROP TABLE PETSALE;
+CREATE TABLE PETSALE (
+    OrderID INTEGER PRIMARY KEY AUTOINCREMENT,
+    PET VARCHAR(20),
+    SALE_DATE DATE,
+    SALE_AMOUNT REAL
+);
