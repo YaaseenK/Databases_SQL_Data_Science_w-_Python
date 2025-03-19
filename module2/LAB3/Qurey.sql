@@ -1,2 +1,6 @@
 -- SQLite
 SELECT * FROM DEPARTMENTS;
+SELECT * FROM JOBS;
+SELECT * FROM JOB_history;
+SELECT * FROM Locations;
+SELECT * FROM Employees;
