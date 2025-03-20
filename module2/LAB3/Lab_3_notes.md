@@ -48,7 +48,7 @@ WHERE (SALARY BETWEEN 60000 AND 70000) AND DEP_ID = 5;
 You can **sort retrieved records** using `ORDER BY`.
 By default, it sorts **ascending (`ASC`)**, but `DESC` can be used for descending order.
 
-### **Example: Retrieve Employees Ordered by Department ID**
+### **Example 1: Retrieve Employees Ordered by Department ID**
 #### **Syntax:**
 ```sql
 SELECT F_NAME, L_NAME, DEP_ID
@@ -57,12 +57,22 @@ ORDER BY DEP_ID;
 ```
 - This sorts employees **by `DEP_ID` in ascending order (default)**.
 
+### **Example 2: Retrieve Employees Ordered by Department ID and Last Name (Descending Order)**
+#### **Syntax:**
+```sql
+SELECT F_NAME, L_NAME
+FROM EMPLOYEES
+ORDER BY DEP_ID, L_NAME DESC;
+```
+- **First sorts by `DEP_ID`**.
+- **Then sorts last names (`L_NAME`) in descending order** within each department.
+
 ---
 
 ## **Grouping Data**
 To **group records** and apply aggregate functions, use `GROUP BY`.
 
-### **Example: Retrieve Employee Count Per Department**
+### **Example 1: Retrieve Employee Count Per Department**
 #### **Syntax:**
 ```sql
 SELECT DEP_ID, COUNT(*)
@@ -72,12 +82,23 @@ GROUP BY DEP_ID;
 - **`COUNT(*)`** counts employees in each department.
 - **`GROUP BY DEP_ID`** groups records by department.
 
+### **Example 2: Retrieve Employee Count and Average Salary Per Department**
+#### **Syntax:**
+```sql
+SELECT DEP_ID, COUNT(*) AS Employee_Count, AVG(SALARY) AS Avg_Salary
+FROM EMPLOYEES
+GROUP BY DEP_ID;
+```
+- Uses **`COUNT(*)`** to count employees.
+- Uses **`AVG(SALARY)`** to calculate average salary per department.
+- Uses **column labels (`AS Employee_Count`, `AS Avg_Salary`)** for better readability.
+
 ---
 
 ## **Summary**
 ✅ **Filtering:** `LIKE`, `BETWEEN`, `AND` for refining results.  
 ✅ **Sorting:** `ORDER BY` (default `ASC`, optional `DESC`).  
-✅ **Grouping:** `GROUP BY` with aggregate functions (e.g., `COUNT(*)`).
+✅ **Grouping:** `GROUP BY` with aggregate functions (e.g., `COUNT(*)`, `AVG(SALARY)`).
 
 ---
 
