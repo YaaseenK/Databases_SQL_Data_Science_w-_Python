@@ -2,6 +2,13 @@
 
 ## **STRING PATTERNS - Filtering Query Results**
 
+### **Using the WHERE Clause to Refine Query Results**
+The `WHERE` clause allows filtering data based on specific conditions.
+
+- The search condition of the `WHERE` clause uses a **predicate** to refine the search.
+- You can use **wildcard characters** (e.g., `%`) as a substitute for unknown characters in a pattern.
+- You can use `BETWEEN ... AND ...` to specify a **range of numbers**.
+
 ### **Example 1: Retrieve Employees from Elgin, IL**
 To retrieve the first names (`F_NAME`) and last names (`L_NAME`) of all employees who live in **Elgin, IL**, use the `LIKE` operator.
 
@@ -44,7 +51,7 @@ WHERE (SALARY BETWEEN 60000 AND 70000) AND DEP_ID = 5;
 
 ---
 
-## **Sorting Data**
+## **Sorting Query Results**
 You can **sort retrieved records** using `ORDER BY`.
 By default, it sorts **ascending (`ASC`)**, but `DESC` can be used for descending order.
 
@@ -69,7 +76,7 @@ ORDER BY DEP_ID, L_NAME DESC;
 
 ---
 
-## **Grouping Data**
+## **Grouping Query Results**
 To **group records** and apply aggregate functions, use `GROUP BY`.
 
 ### **Example 1: Retrieve Employee Count Per Department**
@@ -96,7 +103,9 @@ GROUP BY DEP_ID;
 ---
 
 ## **Summary**
-✅ **Filtering:** `LIKE`, `BETWEEN`, `AND` for refining results.  
+✅ **Filtering:** `WHERE` clause refines queries using predicates.  
+✅ **Wildcard Matching:** `LIKE` with `%` allows pattern-based searches.  
+✅ **Range Queries:** `BETWEEN ... AND ...` filters within a numeric range.  
 ✅ **Sorting:** `ORDER BY` (default `ASC`, optional `DESC`).  
 ✅ **Grouping:** `GROUP BY` with aggregate functions (e.g., `COUNT(*)`, `AVG(SALARY)`).
 
