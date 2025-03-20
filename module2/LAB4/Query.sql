@@ -18,3 +18,15 @@ SELECT min(QUANTITY) from PETRESCUE;
 SELECT * FROM PETRESCUE;
 -- for this query, we will use AVG(col_name).
 SELECT AVG(COST) FROM PETRESCUE;
+
+-- Scalar Functions and String Functions
+
+-- 1. Write a query that displays the rounded integral cost of each rescue.
+-- you will use the function ROUND(col_name, num_of_decimals)
+SELECT ROUND(COST) FROM PETRESCUE;
+-- Could be also written as;
+SELECT ROUND(COST,0) FROM PETRESCUE;
+
+-- In case the question was to round the value to 2 decimal places, the query would change to:
+SELECT ROUND(COST,2) FROM PETRESCUE;
+
