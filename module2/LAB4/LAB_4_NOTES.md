@@ -83,21 +83,47 @@ SELECT SUBSTR(RESCUEDATE, 1, 4) AS Year FROM PETRESCUE;
 ### **2. Adding or Subtracting Time from Dates**
 Adding **3 days** to `RESCUEDATE`:
 ```sql
-SELECT DATETIME(RESCUEDATE, '+3 days') FROM PETRESCUE;
+SELECT DATE(RESCUEDATE, '+3 days') FROM PETRESCUE;
 ```
 Adding **2 months**:
 ```sql
-SELECT DATETIME(RESCUEDATE, '+2 months') FROM PETRESCUE;
+SELECT DATE(RESCUEDATE, '+2 months') FROM PETRESCUE;
 ```
 Subtracting **3 days**:
 ```sql
-SELECT DATETIME(RESCUEDATE, '-3 days') FROM PETRESCUE;
+SELECT DATE(RESCUEDATE, '-3 days') FROM PETRESCUE;
 ```
 
-### **3. Calculating the Time Since Rescue**
+### **3. Datetime Equivalents in SQLite3**
+If `RESCUEDATE` includes both **date and time (`YYYY-MM-DD HH:MM:SS`)**, use `DATETIME()` instead:
+```sql
+SELECT DATETIME(RESCUEDATE, '+3 days') FROM PETRESCUE;
+```
+Adding **2 months with time preserved**:
+```sql
+SELECT DATETIME(RESCUEDATE, '+2 months') FROM PETRESCUE;
+```
+Subtracting **3 days with time preserved**:
+```sql
+SELECT DATETIME(RESCUEDATE, '-3 days') FROM PETRESCUE;
+```
+If `RESCUEDATE` is a **Unix Timestamp (INTEGER)**:
+```sql
+SELECT DATETIME(RESCUEDATE, '+3 days', 'unixepoch') FROM PETRESCUE;
+```
+
+### **4. Calculating the Time Since Rescue**
 Finding the difference (in days) between `RESCUEDATE` and the current date:
 ```sql
 SELECT JULIANDAY('now') - JULIANDAY(RESCUEDATE) AS Days_Since_Rescue FROM PETRESCUE;
+```
+Finding the exact difference in **years, months, and days**:
+```sql
+SELECT 
+    (STRFTIME('%Y', 'now') - STRFTIME('%Y', RESCUEDATE)) AS Years, 
+    (STRFTIME('%m', 'now') - STRFTIME('%m', RESCUEDATE)) AS Months, 
+    (STRFTIME('%d', 'now') - STRFTIME('%d', RESCUEDATE)) AS Days
+FROM PETRESCUE;
 ```
 
 ---
@@ -107,5 +133,6 @@ SELECT JULIANDAY('now') - JULIANDAY(RESCUEDATE) AS Days_Since_Rescue FROM PETRES
 ✅ **Scalar & String Functions** (`ROUND()`, `LENGTH()`, `UPPER()`, `LOWER()`).  
 ✅ **Date Functions** (`STRFTIME()`, `DATETIME()`, `JULIANDAY()`).  
 ✅ **Date Arithmetic** (`+/- INTERVAL` for modifying dates).  
+✅ **Datetime Equivalents** for handling full timestamps.  
 
 These queries will help analyze and manipulate data in **SQLite3**. 🚀
