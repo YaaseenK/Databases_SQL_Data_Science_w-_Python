@@ -79,8 +79,3 @@ WHERE E.JOB_ID = J.JOB_IDENT;
 
 ## **3. Summary**
 ✅ **Sub-queries** are useful for filtering results based on another query.
-✅ **Implicit joins** allow combining multiple tables using shared keys.
-✅ **Using table aliases (`E`, `J`)** makes queries more readable.
-✅ **Fully qualified column names (`E.F_NAME`, `J.JOB_TITLE`)** ensure clarity.
-
-This lab demonstrates efficient methods to retrieve data from multiple tables using **sub-queries and implicit joins**. 🚀
